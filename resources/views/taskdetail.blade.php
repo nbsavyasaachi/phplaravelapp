@@ -13,7 +13,7 @@
                     @include('common.errors')
 
                     <!-- New Task Form -->
-                    <form action="{{ url('taskdetail')}}" method="POST" class="form-horizontal">
+                    <form action="{{ url('itemdetail')}}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
                         <input type="text" hidden="hidden" value="{{ $task->id }}" name="task_id">

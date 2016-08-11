@@ -77,9 +77,9 @@ Route::get('/graphsdata', function() {
     }
 
     return response()->json([
-      'values' => $shopstrendjson,
-      'labels' => $shopsjson,
-      'type' => 'pie'
+      'y' => $shopstrendjson,
+      'x' => $shopsjson,
+      'type' => 'bar'
     ]);
 });
 

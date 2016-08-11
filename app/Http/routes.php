@@ -83,7 +83,7 @@ Route::get('/graphsdata', function() {
     ]);
 });
 
-Route::post('/task', function (Request $request) {
+Route::post('/item', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
     ]);
@@ -102,13 +102,13 @@ Route::post('/task', function (Request $request) {
     return redirect('/');
 });
 
-Route::delete('/task/{id}', function ($id) {
+Route::delete('/item/{id}', function ($id) {
     Task::findOrFail($id)->delete();
 
     return redirect('/');
 });
 
-Route::get('/taskdetail/{id}', function ($id) {
+Route::get('/itemdetail/{id}', function ($id) {
     
     $category = Category::orderBy('created_at', 'asc')->get();
     $task = Task::find($id);
@@ -119,7 +119,7 @@ Route::get('/taskdetail/{id}', function ($id) {
         ]);
 });
 
-Route::post('/taskdetail',function(Request $request){
+Route::post('/itemdetail',function(Request $request){
     $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
     ]);

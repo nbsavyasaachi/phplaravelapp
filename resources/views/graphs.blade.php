@@ -5,7 +5,7 @@
         <div class="col-sm-offset-1 col-sm-10">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Graphs
+                    Purchase trends from shops
                 </div>
 
                 <div class="panel-body">
@@ -18,7 +18,7 @@
     </div>
     <script src="{{ URL::to('src/js/jquery.js') }}"></script>
     <!-- Plotly.js -->
-	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="{{ URL::to('src/js/plotly-latest.min.js') }}"></script>
 	<!-- Numeric JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
 	<script>

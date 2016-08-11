@@ -5,7 +5,7 @@
         <div class="col-sm-offset-1 col-sm-10">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Task Detail
+                    Item Detail
                 </div>
 
                 <div class="panel-body">
@@ -20,7 +20,7 @@
 
                         <!-- Task Name -->
                         <div class="form-group">
-                            <label for="task-name" class="col-sm-3 control-label">Task</label>
+                            <label for="task-name" class="col-sm-3 control-label">Item</label>
 
                             <div class="col-sm-4">
                                 <input type="text" name="name" id="task-name" class="form-control" value="{{ $task->name }}">
@@ -64,7 +64,7 @@
 
                         <!-- Task Completion -->
                         <div class="form-group">
-                            <label for="task-price" class="col-sm-3 control-label">Completion</label>
+                            <label for="task-price" class="col-sm-3 control-label">Purchased</label>
 
                             <div class="col-sm-4">
                                 <input style="margin-top:10px;" name="completed" type="checkbox" 
@@ -76,14 +76,14 @@
 
                         <!-- Update Task Button -->
                         <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-4">
-                                <button type="submit" class="btn btn-default">
+                            <div class="col-sm-offset-3 col-sm-2">
+                                <button type="submit" class="btn btn-success">
                                     Update
                                 </button>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                                 <a href="{{ url('/') }}">
-                                    <button type="button" class="btn btn-default">
+                                    <button type="button" class="btn btn-warning">
                                         Cancel
                                     </button>
                                 </a>

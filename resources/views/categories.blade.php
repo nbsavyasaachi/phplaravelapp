@@ -56,14 +56,14 @@
                                         <td class="table-text"><div> {{ $category->category_name }} </div></td>
                                         <!-- Category Delete Button -->
                                         <td>
-                                            <form action="{{ url('category/'.$category->id) }}" method="POST">
+                                            <!--<form action="{{ url('category/'.$category->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
 
                                                 <button type="submit" class="btn btn-danger">
                                                     <i class="fa fa-btn fa-trash"></i>Delete
                                                 </button>
-                                            </form>
+                                            </form>-->
                                         </td>
                                     </tr>
                                 @endforeach

@@ -5,7 +5,7 @@ use App\Category;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    $tasks = Task::orderBy('created_at', 'asc')->get();
+    $tasks = Task::orderBy('created_at', 'des')->get();
     $category = Category::orderBy('created_at', 'asc')->get();
 
     return view('tasks', [
@@ -23,40 +23,62 @@ Route::get('/graphs',function() {
 });
 
 Route::get('/graphsdata', function() {
-    $categories = Category::orderBy('created_at', 'asc')->get();
-    $tasks = Task::orderBy('created_at', 'asc')->get();
+    // $categories = Category::orderBy('created_at', 'asc')->get();
+    // $tasks = Task::orderBy('created_at', 'asc')->get();
 
-    $categoriesjson = array();
-    $tasksjson = array();
+    // $categoriesjson = array();
+    // $tasksjson = array();
     
-    $i = 0;
-    foreach ($categories as $category)
-    {
-        $categoriesjson[$i] = $category->category_name;
-        $i++;
-    }
+    // $i = 0;
+    // foreach ($categories as $category)
+    // {
+    //     $categoriesjson[$i] = $category->category_name;
+    //     $i++;
+    // }
+
+    // $i = 0;
+    // foreach($categories as $category)
+    // {
+    //     $total = 0;
+    //     foreach ($tasks as $task)
+    //     {
+    //         if($task->category->category_name == $category->category_name){
+    //             if($task->completed)
+    //             {
+    //                 $total = $total + $task->price;
+    //             }
+    //         }
+    //     }
+    //     $tasksjson[$i] = $total;
+    //     $i++;
+    // }
+
+    $tasks = Task::orderBy('created_at', 'asc')->get();
+    $shops = Task::distinct()->get(['shop']);
+    $shopstrendjson = array();
+    $shopsjson = array();
 
     $i = 0;
-    foreach($categories as $category)
+    foreach($shops as $shop)
     {
         $total = 0;
         foreach ($tasks as $task)
         {
-            if($task->category->category_name == $category->category_name){
+            if($task->shop == $shop->shop){
                 if($task->completed)
                 {
                     $total = $total + $task->price;
                 }
             }
         }
-        $tasksjson[$i] = $total;
+        $shopstrendjson[$i] = $total;
+        $shopsjson[$i] = $shop->shop;
         $i++;
     }
 
-
     return response()->json([
-      'values' => $tasksjson,
-      'labels' => $categoriesjson,
+      'values' => $shopstrendjson,
+      'labels' => $shopsjson,
       'type' => 'pie'
     ]);
 });

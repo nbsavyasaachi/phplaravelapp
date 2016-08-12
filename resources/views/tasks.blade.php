@@ -5,7 +5,7 @@
         <div class="col-sm-offset-1 col-sm-10">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    New Task
+                    New List Item
                 </div>
 
                 <div class="panel-body">
@@ -13,12 +13,12 @@
                     @include('common.errors')
 
                     <!-- New Task Form -->
-                    <form action="{{ url('task')}}" method="POST" class="form-horizontal">
+                    <form action="{{ url('item')}}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
                         <!-- Task Name -->
                         <div class="form-group">
-                            <label for="task-name" class="col-sm-3 control-label">Task</label>
+                            <label for="task-name" class="col-sm-3 control-label">Item</label>
 
                             <div class="col-sm-4">
                                 <input type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}">
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-btn fa-plus"></i>Add Task
+                                    <i class="fa fa-btn fa-plus"></i>Add Item
                                 </button>
                             </div>
                         </div>
@@ -56,17 +56,17 @@
             @if (count($tasks) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Current Tasks
+                        List Items
                     </div>
 
                     <div class="panel-body" id="taskdiv">
                         <table class="table table-striped task-table" style="margin-bottom:0px">
                             <thead>
-                                <th>Task</th>
+                                <th>Item</th>
                                 <th>Category</th>
                                 <th>Shop</th>
                                 <th>Price</th>
-                                <th class="text-center">Completed</th>                              
+                                <th class="text-center">Purchased</th>                              
                                 <th>&nbsp;</th>
                                 <th>&nbsp;</th>
                             </thead>
@@ -84,7 +84,7 @@
                                         </td>
                                         <!-- Task Edit Button -->
                                         <td class="table-text">
-                                            <a href="{{ url('taskdetail/'.$task->id) }}">
+                                            <a href="{{ url('itemdetail/'.$task->id) }}">
                                                 <button type="button" class="btn btn-info edit-btn">
                                                     <i class="fa fa-btn fa-edit"></i>Edit
                                                 </button>
@@ -92,7 +92,7 @@
                                         </td>
                                         <!-- Task Delete Button -->
                                         <td class="table-text">
-                                            <form action="{{ url('task/'.$task->id) }}" method="POST">
+                                            <form action="{{ url('item/'.$task->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
 

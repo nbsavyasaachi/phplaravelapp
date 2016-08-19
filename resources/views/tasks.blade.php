@@ -59,14 +59,14 @@
                         List Items
                     </div>
 
-                    <div class="panel-body" id="taskdiv">
+                    <div class="panel-body zero-padding" id="taskdiv">
                         <table class="table table-striped task-table" style="margin-bottom:0px">
                             <thead>
                                 <th>Item</th>
-                                <th>Category</th>
-                                <th>Shop</th>
-                                <th>Price</th>
-                                <th class="text-center">Purchased</th>                              
+                                <th class="display-none">Category</th>
+                                <th class="display-none">Shop</th>
+                                <th class="display-none">Price</th>
+                                <th class="text-center display-none">Purchased</th>                              
                                 <th>&nbsp;</th>
                                 <th>&nbsp;</th>
                             </thead>
@@ -74,10 +74,10 @@
                                 @foreach ($tasks as $task)
                                     <tr>
                                         <td class="table-text"><div>{{ $task->name }}</div></td>
-                                        <td class="table-text"><div>{{ $task->category->category_name }}</div></td>
-                                        <td class="table-text"><div>{{ $task->shop }}</div></td>
-                                        <td class="table-text"><div>{{ $task->price }}</div></td>
-                                        <td class="table-text">
+                                        <td class="display-none table-text"><div>{{ $task->category->category_name }}</div></td>
+                                        <td class="table-text display-none"><div>{{ $task->shop }}</div></td>
+                                        <td class="table-text display-none"><div>{{ $task->price }}</div></td>
+                                        <td class="table-text display-none">
                                             <div class="text-center">
                                                 <?php if ($task->completed){ ?><i class="fa fa-btn fa-check"></i><?php } ?>
                                             </div>
@@ -86,7 +86,7 @@
                                         <td class="table-text">
                                             <a href="{{ url('itemdetail/'.$task->id) }}">
                                                 <button type="button" class="btn btn-info edit-btn">
-                                                    <i class="fa fa-btn fa-edit"></i>Edit
+                                                    <i class="fa fa-btn fa-edit"></i> <span class="display-none">Edit</span>
                                                 </button>
                                             </a>
                                         </td>
@@ -97,7 +97,7 @@
                                                 {{ method_field('DELETE') }}
 
                                                 <button type="submit" class="btn btn-danger">
-                                                    <i class="fa fa-btn fa-trash"></i>Delete
+                                                    <i class="fa fa-btn fa-trash"></i><span class="display-none">Delete</span>
                                                 </button>
                                             </form>
                                         </td>
@@ -105,6 +105,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $tasks->links() }}
                     </div>
                 </div>
             @endif

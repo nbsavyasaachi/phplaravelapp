@@ -5,7 +5,7 @@ use App\Category;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    $tasks = Task::orderBy('created_at', 'des')->get();
+    $tasks = Task::orderBy('created_at', 'des')->paginate(5);
     $category = Category::orderBy('created_at', 'asc')->get();
 
     return view('tasks', [
@@ -53,6 +53,12 @@ Route::get('/graphsdata', function() {
     //     $i++;
     // }
 
+    // return response()->json([
+    //     'values' => $shopstrendjson,
+    //     'labels' => $shopsjson,
+    //     'type' => 'pie'
+    //  ]);
+
     $tasks = Task::orderBy('created_at', 'asc')->get();
     $shops = Task::distinct()->get(['shop']);
     $shopstrendjson = array();
@@ -77,10 +83,16 @@ Route::get('/graphsdata', function() {
     }
 
     return response()->json([
-      'y' => $shopstrendjson,
-      'x' => $shopsjson,
-      'type' => 'bar'
+        'values' => $shopstrendjson,
+        'labels' => $shopsjson,
+        'type' => 'pie'
     ]);
+
+    // return response()->json([
+    //   'y' => $shopstrendjson,
+    //   'x' => $shopsjson,
+    //   'type' => 'bar'
+    // ]);
 });
 
 Route::post('/item', function (Request $request) {

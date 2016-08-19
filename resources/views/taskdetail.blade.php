@@ -77,7 +77,7 @@
                         <!-- Update Task Button -->
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-2">
-                                <button type="submit" class="btn btn-success">
+                                <button type="submit" class="btn btn-success update-btn">
                                     Update
                                 </button>
                             </div>

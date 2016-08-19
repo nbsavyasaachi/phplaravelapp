@@ -1,0 +1,39 @@
+.pagination{
+	float: right;
+}
+
+.update-btn{
+	float: left;
+	margin-right: 15px;
+}
+
+@media (max-width: 650px) {
+	.navbar {
+		min-height: 20px;
+		height: 35px;
+	}
+	.navbar-header{
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+	}
+	.navbar-brand {
+		font-size: 14px;
+		padding: 5px;
+		line-height: 10px;
+		height: 35px;
+		border-right: 2px solid #e7e7e7;
+		padding-top:10px;
+	}
+	.navbar-brand:last-child{
+		border-right: none;
+	}
+	.display-none{
+		display: none;
+	}
+	.zero-padding{
+		padding: 0px;
+	}
+	g.legend{
+		display: none;
+	}
+}

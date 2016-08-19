@@ -8,8 +8,8 @@
                     Purchase trends from shops
                 </div>
 
-                <div class="panel-body">
-                	<div id="myDiv" style="width: 480px; height: 380px; margin:0 auto;">
+                <div class="panel-body zero-padding">
+                	<div id="myDiv"> <!--style="width: 480px; height: 380px; margin:0 auto;"-->
                 		<!-- Plotly chart will be drawn inside this DIV -->
                 	</div>
                 </div>
@@ -31,7 +31,7 @@
 
 			var layout = {
 			  height: 380,
-			  width: 480
+			  width: (screen.width/3) * 2
 			};
 
 			Plotly.newPlot('myDiv', plotdata, layout);

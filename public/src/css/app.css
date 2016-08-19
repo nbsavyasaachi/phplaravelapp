@@ -7,6 +7,13 @@
 	margin-right: 15px;
 }
 
+.inactive{
+	pointer-events: none;
+	cursor: default;
+	text-decoration: none;
+	color: black;
+}
+
 @media (max-width: 650px) {
 	.navbar {
 		min-height: 20px;
@@ -35,5 +42,17 @@
 	}
 	g.legend{
 		display: none;
+	}
+	.inactive{
+		pointer-events: auto;
+		cursor: pointer;
+		text-decoration: none;
+		color: black;
+	}
+}
+
+@media (max-width: 990px){
+	.zero-padding{
+		padding: 0px;
 	}
 }

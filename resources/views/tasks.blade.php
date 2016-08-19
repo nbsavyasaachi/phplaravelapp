@@ -66,24 +66,30 @@
                                 <th class="display-none">Category</th>
                                 <th class="display-none">Shop</th>
                                 <th class="display-none">Price</th>
-                                <th class="text-center display-none">Purchased</th>                              
-                                <th>&nbsp;</th>
+                                <th class="text-center">Purchased</th>                              
+                                <th class="display-none">&nbsp;</th>
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
                                 @foreach ($tasks as $task)
                                     <tr>
-                                        <td class="table-text"><div>{{ $task->name }}</div></td>
+                                        <td class="table-text">
+                                            <div>
+                                                <a class="inactive" href="{{ url('itemdetail/'.$task->id) }}">
+                                                    {{ $task->name }}
+                                                </a>
+                                            </div>
+                                        </td>
                                         <td class="display-none table-text"><div>{{ $task->category->category_name }}</div></td>
                                         <td class="table-text display-none"><div>{{ $task->shop }}</div></td>
                                         <td class="table-text display-none"><div>{{ $task->price }}</div></td>
-                                        <td class="table-text display-none">
+                                        <td class="table-text">
                                             <div class="text-center">
                                                 <?php if ($task->completed){ ?><i class="fa fa-btn fa-check"></i><?php } ?>
                                             </div>
                                         </td>
                                         <!-- Task Edit Button -->
-                                        <td class="table-text">
+                                        <td class="table-text display-none">
                                             <a href="{{ url('itemdetail/'.$task->id) }}">
                                                 <button type="button" class="btn btn-info edit-btn">
                                                     <i class="fa fa-btn fa-edit"></i> <span class="display-none">Edit</span>
